@@ -1,0 +1,32 @@
+# [Created by task 3.4.2 7/14/2026 13:27:33]
+data.location=/Users/guerra/.task
+news.version=3.4.2
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+
+include bubblegum-256.theme
+uda.priority.values=Critical,Important,Medium,Low,
+report.list.columns=id,start.age,entry.age,depends.indicator,project,tags,recur.indicator,scheduled.countdown,until.remaining,description,priority
+report.list.labels=ID,Active,Age,D,Project,Tags,R,Sch,Until,Description,Priority
+report.list.sort=priority-,project+
+urgency.uda.priority.Critical.coefficient=6.0
+urgency.uda.priority.Important.coefficient=3.9
+urgency.uda.priority.Medium.coefficient=2.0
+urgency.uda.priority.Low.coefficient=0.5
+column.padding=2
+defaultwidth=0
+color=on
+row.padding=1
+indent.annotation=6
+dateformat.annotation=↳
+color.uda.priority.Critical=color236 on color218
+color.uda.priority.Important=color236 on color153
+color.uda.priority.Medium=color236 on color223
+color.uda.priority.Low=color236 on color157
+rule.precedence.color=deleted,completed,active,uda.,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged
+color.active=bold underline

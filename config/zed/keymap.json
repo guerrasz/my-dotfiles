@@ -1,0 +1,48 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  {
+    "bindings": {
+      "cmd-shift-v": "workspace::ToggleVimMode"
+    }
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "enter": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-c o": [
+        "pane::CloseOtherItems",
+        {
+          "close_pinned": false
+        }
+      ]
+    }
+  },
+  {
+    "bindings": {
+      "cmd-shift-p": "workspace::CloseProject"
+    }
+  }
+]

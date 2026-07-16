@@ -1,0 +1,84 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+//
+// NOTE: This is a sanitized template committed to the dotfiles repo.
+//   - `context7_api_key` is a placeholder — put your real key here after cloning.
+//   - `ssh_connections` has been emptied — add your own hosts locally.
+// See the repo README ("Zed secrets") for details.
+{
+  "cli_default_open_behavior": "existing_window",
+  "restore_on_startup": "launchpad",
+  "ssh_connections": [],
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "relative_line_numbers": "wrapped",
+  "gutter": {
+    "line_numbers": true,
+  },
+  "which_key": {
+    "delay_ms": 750,
+    "enabled": true,
+  },
+  "vim_mode": false,
+  "auto_update_extensions": {
+    "proto": false,
+  },
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+  },
+  "context_servers": {
+    "mcp-server-context7": {
+      "enabled": true,
+      "remote": false,
+      "settings": {
+        "context7_api_key": "REPLACE_WITH_YOUR_CONTEXT7_API_KEY"
+      },
+    },
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+    "copilot": {
+      "enable_next_edit_suggestions": true,
+    },
+    "mode": "subtle",
+  },
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true,
+  },
+  "ui_font_family": ".ZedSans",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "icon_theme": "Catppuccin Latte",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics",
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1500,
+    },
+  },
+}

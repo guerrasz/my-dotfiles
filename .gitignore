@@ -1,0 +1,12 @@
+# Local, machine-specific, or sensitive Zed state — never commit
+config/zed/settings.local.json
+config/zed/prompts/
+config/zed/conversations/
+config/zed/themes/
+config/zed/settings_backup.json
+
+# Taskwarrior DATA lives in ~/.task (personal tasks) and is never versioned here
+# (the repo only tracks ~/.taskrc)
+
+# OS cruft
+.DS_Store

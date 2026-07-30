@@ -42,7 +42,7 @@
   },
   {
     "bindings": {
-      "cmd-shift-p": "workspace::CloseProject"
+      "cmd-shift-z": "workspace::CloseProject"
     }
   }
 ]

@@ -29,7 +29,8 @@
     "favorite_models": [],
     "model_parameters": []
   },
-  "relative_line_numbers": "wrapped",
+  "soft_wrap": "editor_width",
+  "relative_line_numbers": "enabled",
   "gutter": {
     "line_numbers": true,
   },

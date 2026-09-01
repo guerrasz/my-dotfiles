@@ -9,3 +9,6 @@ keybind = cmd+m=text:cmatrix -sb -u 7 -C magenta \n
 keybind = cmd+;=text:asciiquarium \n
 keybind = cmd+'=text:clear && fastfetch \n task list \n
 keybind = cmd+z=text:task add ""
+keybind = cmd+t=new_tab
+keybind = cmd+t=prompt_tab_title
+shell-integration-features = no-title

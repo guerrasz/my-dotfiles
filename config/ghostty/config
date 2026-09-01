@@ -3,12 +3,11 @@ background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true
 theme = Catppuccin Mocha
-keybind = cmd+l=text:clear && fastfetch \n
-keybind = cmd+j=text:export TERM=xterm \n
-keybind = cmd+m=text:cmatrix -sb -u 7 -C magenta \n
-keybind = cmd+;=text:asciiquarium \n
-keybind = cmd+'=text:clear && fastfetch \n task list \n
-keybind = cmd+z=text:task add ""
-keybind = cmd+t=new_tab
-keybind = cmd+t=prompt_tab_title
+keybind = super+l=text:clear && fastfetch \n
+keybind = super+j=text:export TERM=xterm \n
+keybind = super+m=text:cmatrix -sb -u 7 -C magenta \n
+keybind = super+;=text:asciiquarium \n
+keybind = super+'=text:clear && fastfetch \n task list \n
+keybind = super+z=text:task add ""
+keybind = super+shift+r=prompt_tab_title
 shell-integration-features = no-title

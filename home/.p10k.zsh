@@ -80,6 +80,7 @@
     terraform               # terraform workspace (https://www.terraform.io)
     # terraform_version     # terraform version (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+    aws_creds               # aws account from exported AWS_ACCESS_KEY_ID (custom, see prompt_aws_creds)
     aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
@@ -1484,7 +1485,7 @@
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
       '*'       DEFAULT)
-  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=7
+  typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=232
   typeset -g POWERLEVEL9K_AWS_DEFAULT_BACKGROUND=1
   # typeset -g POWERLEVEL9K_AWS_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -1493,6 +1494,30 @@
   # - P9K_AWS_PROFILE  The name of the current AWS profile.
   # - P9K_AWS_REGION   The region associated with the current AWS profile.
   typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
+
+  #[ aws_creds: aws account from exported credentials (custom segment) ]#
+  # The built-in aws segment only shows when a profile variable (AWS_PROFILE etc.) is set.
+  # This one covers credentials exported directly (AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY/
+  # AWS_SESSION_TOKEN) by decoding the account ID embedded in the access key ID. No network call.
+  typeset -g POWERLEVEL9K_AWS_CREDS_SHOW_ON_COMMAND=$POWERLEVEL9K_AWS_SHOW_ON_COMMAND
+  typeset -g POWERLEVEL9K_AWS_CREDS_FOREGROUND=$POWERLEVEL9K_AWS_DEFAULT_FOREGROUND
+  typeset -g POWERLEVEL9K_AWS_CREDS_BACKGROUND=$POWERLEVEL9K_AWS_DEFAULT_BACKGROUND
+  # Optional friendly names for account IDs, e.g. ([123456789012]=prod [210987654321]=dev).
+  typeset -gA POWERLEVEL9K_AWS_CREDS_ACCOUNT_NAMES=()
+
+  function prompt_aws_creds() {
+    # Let the built-in aws segment handle profile-based sessions.
+    [[ -n ${AWS_VAULT:-${AWSUME_PROFILE:-${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}}} ]] && return
+    local key=$AWS_ACCESS_KEY_ID
+    [[ ${#key} == 20 && $key == (AKIA|ASIA)* ]] || return
+    local b32=ABCDEFGHIJKLMNOPQRSTUVWXYZ234567 c
+    local -i n=0
+    for c in ${(s::)key[5,14]}; do n=$(( (n << 5) | (${b32[(i)$c]} - 1) )); done
+    local account=${(l:12::0:)$(( ((n >> 2) & 0x7fffffffff80) >> 7 ))}
+    local text=${POWERLEVEL9K_AWS_CREDS_ACCOUNT_NAMES[$account]:-$account}
+    local region=${AWS_REGION:-$AWS_DEFAULT_REGION}
+    p10k segment -i $'\uF270' -t "${text//\%/%%}${region:+ ${region//\%/%%}}"
+  }
 
   #[ aws_eb_env: aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/) ]#
   # AWS Elastic Beanstalk environment color.

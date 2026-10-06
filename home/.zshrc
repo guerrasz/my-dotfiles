@@ -141,3 +141,6 @@ alias t=task
 alias tl='printf "\n\n" && task list'
 alias tn='printf "\n\n" && task next'
 alias tm='task modify'
+
+# K8s aliases
+alias k=kubectl

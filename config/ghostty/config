@@ -5,6 +5,7 @@ window-decoration = true
 theme = Catppuccin Mocha
 shell-integration-features = no-title,ssh-terminfo,ssh-env
 keybind = super+l=text:clear && fastfetch \n
+keybind = super+j=text:export TERM=xterm \n
 keybind = super+/=text:clear && fastfetch -c ~/.config/fastfetch/claude.jsonc \n
 keybind = super+m=text:cmatrix -sb -u 7 -C magenta \n
 keybind = super+;=text:asciiquarium \n

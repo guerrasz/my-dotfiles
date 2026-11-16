@@ -37,6 +37,9 @@ link "$DOTFILES/home/.zshenv"   "$HOME/.zshenv"
 link "$DOTFILES/home/.p10k.zsh" "$HOME/.p10k.zsh"
 link "$DOTFILES/home/.taskrc"   "$HOME/.taskrc"
 
+info "Linking Claude Code theme (per-file: the rest of ~/.claude is local state)"
+link "$DOTFILES/home/.claude/themes/lucas.json" "$HOME/.claude/themes/lucas.json"
+
 info "Linking ~/.config tools"
 link "$DOTFILES/config/nvim"      "$HOME/.config/nvim"
 link "$DOTFILES/config/fastfetch" "$HOME/.config/fastfetch"

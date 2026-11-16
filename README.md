@@ -12,6 +12,7 @@ No git submodules, no remotes buried inside — it's fully self-contained.
 | **zsh** | `home/.zshrc`, `home/.zshenv` | `~/.zshrc`, `~/.zshenv` |
 | **powerlevel10k** | `home/.p10k.zsh` | `~/.p10k.zsh` |
 | **taskwarrior** | `home/.taskrc` | `~/.taskrc` |
+| **claude code** | `home/.claude/themes/lucas.json` | `~/.claude/themes/lucas.json` |
 | **nvim** | `config/nvim/` | `~/.config/nvim` |
 | **fastfetch** | `config/fastfetch/` | `~/.config/fastfetch` |
 | **ghostty** | `config/ghostty/` | `~/.config/ghostty` |
@@ -86,6 +87,7 @@ dotfiles/
 ├── .gitignore          # excludes secrets & personal Zed/Task data
 ├── home/               # files that live in ~
 │   ├── .zshrc  .zshenv  .p10k.zsh  .taskrc
+│   └── .claude/themes/lucas.json   # Claude Code pastel theme (Catppuccin Mocha)
 └── config/             # files that live in ~/.config
     ├── nvim/  fastfetch/  ghostty/
     └── zed/            # keymap.json + sanitized settings.json template

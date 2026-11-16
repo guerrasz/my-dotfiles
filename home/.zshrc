@@ -144,3 +144,7 @@ alias tm='task modify'
 
 # K8s aliases
 alias k=kubectl
+
+# Choreo utility scripts
+export PATH="/Users/guerra/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
